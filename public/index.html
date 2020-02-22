@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div id="main">
+        <div class="form">
+            <form>
+                <!--
+                        "form" in v-model refers to "form"-property in script
+                    -->
+                <!-- .title refers to "title" property in data in script -->
+                <input id="input" v-model="form.title" type="text" name="title" placeholder="title" />
+                <!-- teqnique applied to all the input fields -->
+                <input id="input" v-model="form.description" type="text" name="description" placeholder="image description" />
+                <!-- teqnique applied to all the input fields -->
+                <input id="input" v-model="form.username" type="text" name="username" placeholder="enter your username" />
+                <!-- @change is geting passed the function name -->
+                <input id="select-img" type="file" name="file" accept="image/*" @change="handleFileChange" class="inputfile" />
+                <label for="select-img">Choose a file</label>
+                <!--
+                        @click adds event to button; uploadeFile is the function name
+                    -->
+                <button id="upload-button" @click.prevent.default="uploadFile">
+                    Upload
+                </button>
+            </form>
+        </div>
+        <div class="title-container">
+            <img class="logo" id="logo-left" src="images/Do.png" alt="" />
+            <h1 id="title">WAX ON, WAX OFF</h1>
+            <img class="logo" id="logo-right" src="images/Cobra2.png" alt="" />
+        </div>
+        <h3 id="subtitle">The official Karate Kid photo page</h3>
+
+        <div class="images">
+            <div v-for="image in images" v-if="images.length > 0" class="card">
+                <a :href="'#' + image.id">
+                    <img :src="image.url" alt="" />
+                    <p>{{image.title}}</p>
+                </a>
+            </div>
+        </div>
+        <div id="more">
+            <button v-if="getMoreButton" @click="getMoreImages" id="more-button" type="button" name="button">GET MORE</button>
+        </div>
+        <!--
+                HERE EVERYTHING IS THAT IS PASSED IS COMMING FROM SCRIPT.JS AND IS RESPONSIBLE FOR THE FUNCTIONALITY OF THE MODAL
+            -->
+        <img-modal v-if="imgThatWasClicked" :img-that-was-clicked="imgThatWasClicked" @close-modal="close"></img-modal>
+    </div>
+    <!-- main closes here -->
+
+    <!--
+            Here's the HTML my Vue modal should have, THIS IS EVERYTHING THAT IS DISPLAYED IN HTML IF THE MODAL SHOWS
+        -->
+    <script id="modal-template" type="text/x-template">
+        <!-- CREATE EXTRA DIV AROUND THAT TAKES CARE OF POSITION FIXED; -->
+        <!--OVERFLOW Y = AUTO, LEFT ETC = 0  -->
+        <transition name="bounce">
+        <div id="fixed">
+                <div class="modal-container" @click.self='closeModal'>
+                    <button id="x" @click='closeModal'>X</button>
+                    <img :src="modal.url" @click='closeModal'>
+                    <div class="img-info" @click='closeModal'>
+                        <h1>{{modal.title}}</h1>
+                        <h4>{{modal.description}}</h4>
+                        <h4>uploaded by {{modal.username}} on {{modal.created_at}}</h4>
+                    </div>
+                    <div id="form">
+                        <form>
+                            <!--"form" in v-model refers to "form"-property in script-->
+                            <!--.title refers to "title" property in data in script-->
+                            <input v-model="form.comment" type="text" name="comment" placeholder="Write a comment">
+                            <!--teqnique applied to all the input fields-->
+                            <input v-model="form.username" type="text" name="username" placeholder="Enter your username">
+                            <!--@click adds event to button; uploadeFile is the function name-->
+                            <button @click.prevent.default='uploadComment'>Upload</button>
+                        </form>
+                    </div>
+                    <div id="comment-box">
+                        <div class="comment-container" v-for="comment in comments" @click='closeModal'>
+                            <h1 class="comments">{{comment.comment}}</h1>
+                            <h4 class="comments">{{comment.username}} on {{new Date(comment.created_at).toLocaleString()}}</h4>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </transition>
+
+        </script>
+    <script src="/js/vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
