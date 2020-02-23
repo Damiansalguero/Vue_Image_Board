@@ -18,7 +18,7 @@ node index.js
 ```
 ### Screenshots of the project
 
-![](/home/damian/Code/Projekte/Vue_Image_Board/screenshots/screenshot 1.png)
+![]("/Damiansalguero/Vue_Image_Board/blob/Damian/screenshots/screenshot1.png?raw=true")
 
 ![](/home/damian/Code/Projekte/Vue_Image_Board/screenshots/screenshot 2.png)
 
