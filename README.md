@@ -18,7 +18,9 @@ node index.js
 ```
 ### Screenshots of the project
 
-![]("/Damiansalguero/Vue_Image_Board/blob/Damian/screenshots/screenshot1.png?raw=true")
+
+
+![](/../master/screenshots/screenshot1.png?raw=true "Optional Title")
 
 ![](/home/damian/Code/Projekte/Vue_Image_Board/screenshots/screenshot 2.png)
 
