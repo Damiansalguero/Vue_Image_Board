@@ -21,7 +21,5 @@ node index.js
 
 
 ![](/screenshots/screenshot1.png?raw=true "Optional Title")
-
-![](/home/damian/Code/Projekte/Vue_Image_Board/screenshots/screenshot 2.png)
-
-![](/home/damian/Code/Projekte/Vue_Image_Board/screenshots/screenshot 4.png)
+![](/screenshots/screenshot2.png?raw=true "Optional Title")
+![](/screenshots/screenshot4.png?raw=true "Optional Title")
