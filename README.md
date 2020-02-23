@@ -18,8 +18,8 @@ node index.js
 ```
 ### Screenshots of the project
 
-![](/home/damian/Bilder/Portfolio/Thumb.png)
+![](/home/damian/Code/Projekte/Vue_Image_Board/screenshots/screenshot 1.png)
 
-![](/home/damian/Bilder/Portfolio/OV_2.png)
+![](/home/damian/Code/Projekte/Vue_Image_Board/screenshots/screenshot 2.png)
 
-![](/home/damian/Bilder/Portfolio/DV.png)
+![](/home/damian/Code/Projekte/Vue_Image_Board/screenshots/screenshot 4.png)
